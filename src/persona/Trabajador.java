@@ -6,7 +6,8 @@ package persona;
  */
 public class Trabajador extends Persona{
     
-    private String costo_seguro, horas_trabajadas, costo_por_hora;
+    private Double costo_seguro, costo_por_hora;
+    private Integer horas_trabajadas;
     
     public Trabajador() {
         super(
@@ -55,27 +56,34 @@ public class Trabajador extends Persona{
     }
     
     private void setCosto_seguro(String costo_seguro) {
-        this.costo_seguro = costo_seguro;
+        this.costo_seguro = Double.valueOf(costo_seguro);
     }
     
     private void setHoras_trabajadas(String horas_trabajadas) {
-        this.horas_trabajadas = horas_trabajadas;
+        this.horas_trabajadas = Integer.valueOf(horas_trabajadas);
     }
     
     private void setCosto_por_hora(String costo_por_hora) {
-        this.costo_por_hora = costo_por_hora;
+        this.costo_por_hora = Double.valueOf(costo_por_hora);
     }
     
-    private String getCosto_seguro() {
+    private Double getCosto_seguro() {
         return this.costo_seguro;
     }
     
-    private String getHoras_trabajadas() {
+    private Integer getHoras_trabajadas() {
         return this.horas_trabajadas;
     }
     
-    private String getCosto_por_hora() {
+    private Double getCosto_por_hora() {
         return this.costo_por_hora;
+    }
+    
+    private Double getSueldo() {
+        /**
+         * to calculate the value -> (horas x costo_hora)+costo_seguro
+         */
+        return (this.getHoras_trabajadas() * this.getCosto_por_hora()) + this.getCosto_seguro();
     }
     
 }

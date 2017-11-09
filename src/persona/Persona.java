@@ -7,11 +7,9 @@ package persona;
 public class Persona {
     
     private String nombres, apellidos, cedula; 
-    private short edad;
+    private int edad;
     
-    public Persona() { }
-    
-    public Persona(String nombres, String apellidos, String cedula, short edad) {
+    public Persona(String nombres, String apellidos, String cedula, int edad) {
         this.setNombre(nombres);
         this.setApellidos(apellidos);
         this.setCedula(cedula);
@@ -30,7 +28,7 @@ public class Persona {
         this.cedula = cedula;
     }
     
-    public void setEdad(short edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
     
@@ -46,7 +44,7 @@ public class Persona {
         return this.cedula;
     }
     
-    public short getEdad() {
+    public Integer getEdad() {
         return this.edad;
     }
     
