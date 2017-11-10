@@ -8,8 +8,7 @@ import persona.Trabajador;
  */
 public class EmpresaPrivada extends Empresa {
     
-    private Double ventas_mensual_fijo;
-    private int numero_sucursales;
+    private int numero_sucursales, ventas_mensual_fijo;
     
     public EmpresaPrivada() {
         super("Nombre empresa indefinido", "n/a", "n/a", new Trabajador[] {});
@@ -39,14 +38,14 @@ public class EmpresaPrivada extends Empresa {
     }
     
     public void setVentas_mensual_fijo(String ventas_mensual_fijo) {
-        this.ventas_mensual_fijo = Double.valueOf(ventas_mensual_fijo);
+        this.ventas_mensual_fijo = Integer.valueOf(ventas_mensual_fijo);
     }
     
     public void setNumero_sucursales(String numero_sucursales) {
         this.numero_sucursales = Integer.valueOf(numero_sucursales);
     }
     
-    public double getVentas_mensual_fijo() {
+    public int getVentas_mensual_fijo() {
         return this.ventas_mensual_fijo;
     }
     
@@ -56,16 +55,16 @@ public class EmpresaPrivada extends Empresa {
     
     private String trabajadoresToString() {
         String message = "";
-        for (Trabajador trabajador:this.trabajadores) message += "\n" + trabajador.toString();
+        for (int i = 0; i < this.trabajadores.length; i++) message += (i + 1) + ")" + this.trabajadores[i].toString();
         return message;
     }
     
     @Override
     public String toString() {
         return String.format("%s"
-                + "Ventas: $%f\n"
+                + "Ventas: $%d\n"
                 + "Sucursales: %d\n"
-                + "Lista Trabajadores:%s", 
+                + "Lista Trabajadores:\n\n%s", 
                 super.toString(),
                 this.getVentas_mensual_fijo(),
                 this.getNumero_sucursales(),

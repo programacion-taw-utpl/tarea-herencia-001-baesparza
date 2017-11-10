@@ -6,7 +6,7 @@ package persona;
  */
 public class Trabajador extends Persona{
     
-    private Double costo_seguro, costo_por_hora;
+    private int costo_seguro, costo_por_hora;
     private Integer horas_trabajadas;
     
     public Trabajador() {
@@ -56,7 +56,7 @@ public class Trabajador extends Persona{
     }
     
     private void setCosto_seguro(String costo_seguro) {
-        this.costo_seguro = Double.valueOf(costo_seguro);
+        this.costo_seguro = Integer.valueOf(costo_seguro);
     }
     
     private void setHoras_trabajadas(String horas_trabajadas) {
@@ -64,10 +64,10 @@ public class Trabajador extends Persona{
     }
     
     private void setCosto_por_hora(String costo_por_hora) {
-        this.costo_por_hora = Double.valueOf(costo_por_hora);
+        this.costo_por_hora = Integer.valueOf(costo_por_hora);
     }
     
-    private Double getCosto_seguro() {
+    private int getCosto_seguro() {
         return this.costo_seguro;
     }
     
@@ -75,11 +75,11 @@ public class Trabajador extends Persona{
         return this.horas_trabajadas;
     }
     
-    private Double getCosto_por_hora() {
+    private int getCosto_por_hora() {
         return this.costo_por_hora;
     }
     
-    private Double getSueldo() {
+    private int getSueldo() {
         /**
          * to calculate the value -> (horas x costo_hora)+costo_seguro
          */
@@ -89,10 +89,10 @@ public class Trabajador extends Persona{
     @Override
     public String toString() {
         return String.format("%s"
-                + "\tSeguro: $%f\n" 
+                + "\tSeguro: $%d\n" 
                 + "\tHoras Trabajadas: %d\n"
-                + "\tValor x Hora: $%f\n"
-                + "\tSueldo: %f\n",
+                + "\tValor x Hora: $%d\n"
+                + "\tSueldo: %d\n",
                 super.toString(),
                 this.getCosto_seguro(),
                 this.getHoras_trabajadas(),
