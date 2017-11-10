@@ -48,4 +48,13 @@ public class Persona {
         return this.edad;
     }
     
+    @Override
+    public String toString() {
+        return String.format("\t%s %s\n" 
+                + "\t%d años de edad\n" 
+                + "\tCI: %s\n",
+                this.getNombre(), this.getApellidos(),
+                this.getEdad(),
+                this.getCedula());
+    }
 }

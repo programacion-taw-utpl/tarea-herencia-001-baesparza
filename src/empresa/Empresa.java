@@ -53,4 +53,13 @@ public class Empresa {
         return this.trabajadores[index];
     }
     
+    @Override
+    public String toString() {
+        return String.format("Empresa: %s\n"
+                + "Siglas: %s\n" 
+                + "Ciudad: %s\n",
+                this.getNombre(),
+                this.getSiglas(),
+                this.getCiudad());
+    }
 }

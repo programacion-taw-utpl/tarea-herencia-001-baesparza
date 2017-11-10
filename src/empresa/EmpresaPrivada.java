@@ -12,7 +12,7 @@ public class EmpresaPrivada extends Empresa {
     private int numero_sucursales;
     
     public EmpresaPrivada() {
-        super("Nombre empreza indefinido", "n/a", "n/a", new Trabajador[] {});
+        super("Nombre empresa indefinido", "n/a", "n/a", new Trabajador[] {});
         this.setVentas_mensual_fijo("0");
         this.setNumero_sucursales("0");
     }
@@ -24,7 +24,7 @@ public class EmpresaPrivada extends Empresa {
     }
     
     public EmpresaPrivada(String ventas_mensual_fijo, String numero_sucursales) {
-        super("Nombre empreza indefinido", "n/a", "n/a", new Trabajador[] {});
+        super("Nombre empresa indefinido", "n/a", "n/a", new Trabajador[] {});
         this.setVentas_mensual_fijo(ventas_mensual_fijo);
         this.setNumero_sucursales(numero_sucursales);
     }
@@ -52,6 +52,24 @@ public class EmpresaPrivada extends Empresa {
     
     public int getNumero_sucursales() {
         return this.numero_sucursales;
+    }
+    
+    private String trabajadoresToString() {
+        String message = "";
+        for (Trabajador trabajador:this.trabajadores) message += "\n" + trabajador.toString();
+        return message;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("%s"
+                + "Ventas: $%f\n"
+                + "Sucursales: %d\n"
+                + "Lista Trabajadores:%s", 
+                super.toString(),
+                this.getVentas_mensual_fijo(),
+                this.getNumero_sucursales(),
+                this.trabajadoresToString());
     }
 
 }

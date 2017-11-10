@@ -71,7 +71,7 @@ public class Trabajador extends Persona{
         return this.costo_seguro;
     }
     
-    private Integer getHoras_trabajadas() {
+    private int getHoras_trabajadas() {
         return this.horas_trabajadas;
     }
     
@@ -84,6 +84,20 @@ public class Trabajador extends Persona{
          * to calculate the value -> (horas x costo_hora)+costo_seguro
          */
         return (this.getHoras_trabajadas() * this.getCosto_por_hora()) + this.getCosto_seguro();
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("%s"
+                + "\tSeguro: $%f\n" 
+                + "\tHoras Trabajadas: %d\n"
+                + "\tValor x Hora: $%f\n"
+                + "\tSueldo: %f\n",
+                super.toString(),
+                this.getCosto_seguro(),
+                this.getHoras_trabajadas(),
+                this.getCosto_por_hora(),
+                this.getSueldo());
     }
     
 }
